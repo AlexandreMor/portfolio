@@ -26,5 +26,4 @@ class AboutMeController extends AbstractController
             'aboutMe' => $aboutMeRepo->findAll(),
         ]);
     }
-
 }

@@ -3,7 +3,10 @@
 <h1 class="mb-5 pb-5 mt-5 border-bottom border-light">{{ project.name }}</h1>
 <div class="mt-5 height100 d-flex align-items-center flex-column">
   <p class="mb-5 w-50">{{ project.description }}</p>
-  <p class="mb-5 w-50 fw-bold">Technologies et langages utilisés : {% for techno in project.technos %} {{ techno }} {% endfor %}</p>
+  <p class="mb-5 w-50 fw-bold">
+    Technologies et langages utilisés : {% for techno in project.technos %}
+    {{ techno }} {% endfor %}
+  </p>
   <div
     id="carouselExampleControls"
     class="carousel slide col-6"
@@ -45,7 +48,7 @@
 <script>
   function itemActive() {
     let item = document.querySelector(".carousel-item:first-child");
-      item.classList.add("active");
+    item.classList.add("active");
   }
   itemActive();
 </script>

@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-    <meta charset="UTF-8">
+    <title>{{ contact.subject }}</title>
+  </head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <body>
+    <h1>
+      {{ contact.firstname }} {{ contact.lastname }} vous a envoyé un message
+    </h1>
 
-    <title>{{contact.subject}}</title>
+    <p>{{ contact.subject }}</p>
 
-</head>
-
-<body>
-
-    <h1>{{contact.firstname}} {{contact.lastname}} vous a envoyé un message</h1>
-
-    <p>{{contact.subject}}</p>
-
-    <p>Mail de contact : {{contact.email}}</p>
-
-</body>
-
+    <p>Mail de contact : {{ contact.email }}</p>
+  </body>
 </html>

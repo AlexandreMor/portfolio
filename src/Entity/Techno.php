@@ -85,5 +85,4 @@ class Techno
     {
         return $this->name;
     }
-
 }

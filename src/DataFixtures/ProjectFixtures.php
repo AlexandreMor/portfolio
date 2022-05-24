@@ -22,7 +22,7 @@ class ProjectFixtures extends Fixture
         $slugify = new Slugify;
 
         $project1 = new Project();
-        
+
         $project1->setName("CGT Hutchinson");
         $project1->setDescription("Réalisation du site web du syndicat CGT de l'usine Hutchinson à Châlette-sur-Loing, en équipe composée de 3 personnes avec le CMS Wordpress.");
         $slug1 = $slugify->generate($project1->getName());
@@ -54,7 +54,7 @@ class ProjectFixtures extends Fixture
         $project3->addImage($this->getReference(GalleryFixtures::GALLERY5));
         $project3->addImage($this->getReference(GalleryFixtures::GALLERY6));
         $manager->persist($project3);
-    
+
         $project4 = new Project();
         $project4->setName("Projet 3 Le juriste moderne");
         $project4->setDescription("Dernier projet à la Wild Code School, toujours réalisé en équipe en méthode agile. Il s'agit d'un site permettant à un dirigeant d'une entreprise de gérer sa structure, à l'aide d'une liste de contacts de personnes morales et physiques dans le but de coopérer sur un projet, gérer des réunions et l'envoi de documents. Il est destiné à un client, c'est la raison pour laquelle il n'est pas disponible sur Github.");

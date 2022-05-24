@@ -18,9 +18,9 @@ class GalleryType extends AbstractType
 
                 'required'      => false,
 
-                'allow_delete'  => true, 
+                'allow_delete'  => true,
 
-                'download_uri' => true, 
+                'download_uri' => true,
 
                 'constraints' => [
                     new File([
@@ -33,7 +33,7 @@ class GalleryType extends AbstractType
                     ])
                 ]
 
-    ]);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

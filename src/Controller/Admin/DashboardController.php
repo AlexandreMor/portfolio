@@ -35,7 +35,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Retour au site', 'fa fa-tags', 'aboutme');
         yield MenuItem::linkToCrud('A propos de moi', 'fa fa-tags', AboutMe::class);
         yield MenuItem::linkToCrud('Projets', 'fa fa-tags', Project::class);
-        yield MenuItem::linkToCrud('Contacts','fa fa-tags',Contact::class);
+        yield MenuItem::linkToCrud('Contacts', 'fa fa-tags', Contact::class);
         yield MenuItem::linkToCrud('Utilisateur', 'fa fa-tags', User::class);
         yield MenuItem::linkToCrud("Galerie d'images", 'fa fa-tags', Gallery::class);
         yield MenuItem::linkToLogout('Se déconnecter', 'fa fa-exit');

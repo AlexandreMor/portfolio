@@ -37,14 +37,14 @@ class ProjectCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('name'),
             TextareaField::new('description'),
             CollectionField::new('images')
-            ->setEntryType(GalleryType::class)
-            ->onlyOnForms(),
+                ->setEntryType(GalleryType::class)
+                ->onlyOnForms(),
             CollectionField::new('technos')
-            ->setEntryType(TechnoType::class),
+                ->setEntryType(TechnoType::class),
 
         ];
     }
-    
+
     public static function getProjectEvents()
     {
         return [
@@ -63,5 +63,4 @@ class ProjectCrudController extends AbstractCrudController
         $slug = $slugify->generate($entity->getName());
         $entity->setSlug($slug);
     }
-    
 }

@@ -20,10 +20,10 @@ class ContactController extends AbstractController
      */
     public function new(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
     {
-        $contact= new Contact;
+        $contact = new Contact;
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($contact);
             $entityManager->flush();
@@ -37,7 +37,7 @@ class ContactController extends AbstractController
 
                 ->html($this->renderView('Contact/newContactEmail.html.twig', ['contact' => $contact]));
 
-                $mailer->send($email);
+            $mailer->send($email);
 
             $this->addFlash('success', 'Votre message a bien été envoyé !');
             return $this->redirectToRoute('contact');
