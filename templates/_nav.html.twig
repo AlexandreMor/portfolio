@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('aboutme') }}">Portfolio</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link {{ page is same as "aboutme" ? "active" : ""}}"
+            {{ page is same as "aboutme" ? 'aria-current="page"' : ""}}
+            href="{{ path('aboutme') }}"
+            >A propos de moi</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ page is same as "projects" ? "active" : ""}}" {{ page is same as "projects" ? 'aria-current="page"' : ""}} href="{{ path('projects') }}">Projets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ page is same as "contact" ? "active" : ""}}" {{ page is same as "contact" ? 'aria-current="page"' : ""}} href="{{ path('contact') }}">Contact</a>
+        </li>
+        <li class="nav-item">
+          {% if app.user %}
+          <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+          {% else %}
+          <a class="nav-link {{ page is same as "app_login" ? "active" : ""}}" {{ page is same as "app_login" ? 'aria-current="page"' : ""}} href="{{ path('app_login') }}">Login</a>
+          {% endif %}
+        </li>
+        {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item"><a class="nav-link {{ page is same as "admin" ? "active" : ""}}" {{ page is same as "admin" ? 'aria-current="page"' : ""}} href="{{ path('admin') }}">Admin</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
