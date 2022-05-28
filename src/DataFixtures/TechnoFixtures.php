@@ -5,23 +5,9 @@ namespace App\DataFixtures;
 use App\Entity\Techno;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
 class TechnoFixtures extends Fixture
 {
-    public const TECHNO1 = 'techno1';
-    public const TECHNO2 = 'techno2';
-    public const TECHNO3 = 'techno3';
-    public const TECHNO4 = 'techno4';
-    public const TECHNO5 = 'techno5';
-    public const TECHNO6 = 'techno6';
-    public const TECHNO7 = 'techno7';
-    public const TECHNO8 = 'techno8';
-    public const TECHNO9 = 'techno9';
-    public const TECHNO10 = 'techno10';
-    public const TECHNO11 = 'techno11';
-
-
     public function load(ObjectManager $manager): void
     {
         $techno1 = new Techno();
@@ -78,18 +64,6 @@ class TechnoFixtures extends Fixture
         $techno11->setName("JQuery");
         $techno11->addProject($this->getReference(ProjectFixtures::PROJECT4));
         $manager->persist($techno11);
-
-        $this->addReference(self::TECHNO1, $techno1);
-        $this->addReference(self::TECHNO2, $techno2);
-        $this->addReference(self::TECHNO3, $techno3);
-        $this->addReference(self::TECHNO4, $techno4);
-        $this->addReference(self::TECHNO5, $techno5);
-        $this->addReference(self::TECHNO6, $techno6);
-        $this->addReference(self::TECHNO7, $techno7);
-        $this->addReference(self::TECHNO8, $techno8);
-        $this->addReference(self::TECHNO9, $techno9);
-        $this->addReference(self::TECHNO10, $techno10);
-        $this->addReference(self::TECHNO11, $techno11);
 
         $manager->flush();
     }

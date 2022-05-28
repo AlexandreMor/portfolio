@@ -5,20 +5,11 @@ namespace App\DataFixtures;
 use App\Entity\Gallery;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class GalleryFixtures extends Fixture
+class GalleryFixtures extends Fixture implements DependentFixtureInterface
 {
-    public const GALLERY1 = 'gallery1';
-    public const GALLERY2 = 'gallery2';
-    public const GALLERY3 = 'gallery3';
-    public const GALLERY4 = 'gallery4';
-    public const GALLERY5 = 'gallery5';
-    public const GALLERY6 = 'gallery6';
-    public const GALLERY7 = 'gallery7';
-    public const GALLERY8 = 'gallery8';
-
     public function load(ObjectManager $manager): void
     {
         $gallery1 = new Gallery();
@@ -126,15 +117,6 @@ class GalleryFixtures extends Fixture
         $manager->persist($gallery8);
 
         $manager->flush();
-
-        $this->addReference(self::GALLERY1, $gallery1);
-        $this->addReference(self::GALLERY2, $gallery2);
-        $this->addReference(self::GALLERY3, $gallery3);
-        $this->addReference(self::GALLERY4, $gallery4);
-        $this->addReference(self::GALLERY5, $gallery5);
-        $this->addReference(self::GALLERY6, $gallery6);
-        $this->addReference(self::GALLERY7, $gallery7);
-        $this->addReference(self::GALLERY8, $gallery8);
     }
     public function getDependencies()
     {
