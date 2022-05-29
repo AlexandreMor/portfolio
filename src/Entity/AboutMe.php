@@ -36,7 +36,7 @@ class AboutMe
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Type("text")
+     * @Assert\Type("string")
      * @Assert\NotBlank
      */
     private $description;
