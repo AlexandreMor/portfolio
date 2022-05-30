@@ -4,8 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\AboutMe;
 use App\Entity\Contact;
-use App\Entity\Gallery;
 use App\Entity\Project;
+use App\Entity\Techno;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -26,18 +26,25 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Portofolio');
+            ->setTitle('Administration du portfolio');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Accueil admin', 'fa fa-home');
-        yield MenuItem::linkToRoute('Retour au site', 'fa fa-tags', 'aboutme');
-        yield MenuItem::linkToCrud('A propos de moi', 'fa fa-tags', AboutMe::class);
-        yield MenuItem::linkToCrud('Projets', 'fa fa-tags', Project::class);
-        yield MenuItem::linkToCrud('Contacts', 'fa fa-tags', Contact::class);
-        yield MenuItem::linkToCrud('Utilisateur', 'fa fa-tags', User::class);
-        yield MenuItem::linkToCrud("Galerie d'images", 'fa fa-tags', Gallery::class);
-        yield MenuItem::linkToLogout('Se déconnecter', 'fa fa-exit');
+        return [
+            MenuItem::section('Liens'),
+            MenuItem::linkToDashboard('Accueil admin', 'fa fa-home'),
+            MenuItem::linkToRoute('Retour au site', 'fa fa-home', 'aboutme'),
+            MenuItem::section("Page d'accueil"),
+            MenuItem::linkToCrud('A propos de moi', 'fa fa-question', AboutMe::class),
+            MenuItem::section('Configuration des projets'),
+            MenuItem::linkToCrud('Technologies', 'fa fa-code', Techno::class),
+            MenuItem::linkToCrud('Projets', 'fa fa-folder-open', Project::class),
+            MenuItem::section('Réception des messages'),
+            MenuItem::linkToCrud('Contacts', 'fa fa-pen', Contact::class),
+            MenuItem::section('Gestion utilisateurs'),
+            MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class),
+            MenuItem::linkToLogout('Se déconnecter', 'fa fa-exit'),
+        ];
     }
 }
